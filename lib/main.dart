@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'colors.dart';
 
 void main() {
   runApp(MyApp());
@@ -8,6 +9,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        primaryColor: AppColors.pink,
+      ),
       home: NavigationPage(),
     );
   }
@@ -38,7 +42,8 @@ class _NavigationPageState extends State<NavigationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Navigation Page'),
+        backgroundColor: AppColors.pink,
+        title: const Text('OvaPal'),
       ),
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
@@ -66,8 +71,8 @@ class _NavigationPageState extends State<NavigationPage> {
         ],
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
-        selectedItemColor: Colors.pink, // Sets the selected item color to pink
-        unselectedItemColor: Colors.black54, // Sets the unselected item color to black with some opacity
+        selectedItemColor: AppColors.pink,
+        unselectedItemColor: AppColors.blackGrey,
       ),
     );
   }
