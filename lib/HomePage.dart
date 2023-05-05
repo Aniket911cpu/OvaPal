@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ovapal/colors.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -8,13 +8,15 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Image Page'),
+        title: const Text('Ovapal'),
+        backgroundColor: AppColors.pink,
+        leading: const NavBar(),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const SizedBox(height: 16.0),
-            Image.asset('asset/images/imgdate.png'),
+          const SizedBox(height: 30.0),
+          Image.asset('asset/images/imgdate.png'),
           const SizedBox(height: 16.0),
           Image.asset('asset/images/main_fert_mestr2.png'),
           const SizedBox(height: 16.0),
@@ -22,6 +24,62 @@ class Home extends StatelessWidget {
           const SizedBox(height: 16.0),
           Image.asset('asset/images/main_btn_down'),
           const SizedBox(height: 16.0),
+        ],
+      ),
+    );
+  }
+}
+
+class NavBar extends StatefulWidget {
+  const NavBar({Key? key}) : super(key: key);
+
+  @override
+  State<NavBar> createState() => _NavBarState();
+}
+
+class _NavBarState extends State<NavBar> {
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: <Widget>[
+          const DrawerHeader(
+            decoration: BoxDecoration(
+                color: Colors.green,
+                image: DecorationImage(
+                    fit: BoxFit.fill,
+                    image: AssetImage('assets/images/cover.jpg'))),
+            child: Text(
+              'Side menu',
+              style: TextStyle(color: Colors.white, fontSize: 25),
+            ),
+          ),
+          ListTile(
+            leading: const Icon(Icons.input),
+            title: const Text('Welcome'),
+            onTap: () => {},
+          ),
+          ListTile(
+            leading: const Icon(Icons.verified_user),
+            title: const Text('Profile'),
+            onTap: () => {Navigator.of(context).pop()},
+          ),
+          ListTile(
+            leading: const Icon(Icons.settings),
+            title: const Text('Settings'),
+            onTap: () => {Navigator.of(context).pop()},
+          ),
+          ListTile(
+            leading: const Icon(Icons.border_color),
+            title: const Text('Feedback'),
+            onTap: () => {Navigator.of(context).pop()},
+          ),
+          ListTile(
+            leading: const Icon(Icons.exit_to_app),
+            title: const Text('Logout'),
+            onTap: () => {Navigator.of(context).pop()},
+          ),
         ],
       ),
     );
