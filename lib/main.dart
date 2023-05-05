@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'HomePage.dart';
+import 'Notes.dart';
+import 'Settings.dart';
+import 'chart.dart';
 import 'colors.dart';
+import 'medico.dart';
 
 void main() {
   runApp(MyApp());
@@ -24,12 +29,12 @@ class NavigationPage extends StatefulWidget {
 
 class _NavigationPageState extends State<NavigationPage> {
   int _selectedIndex = 0;
-  List<Widget> _pages = [
-    PageOne(),
-    PageTwo(),
-    PageThree(),
-    PageFour(),
-    PageFive(),
+  final List<Widget> _pages = [
+    const Home(),
+    Chart(),
+    Medical(),
+    Notes(),
+    Settings(),
   ];
 
   void _onItemTapped(int index) {
@@ -41,32 +46,28 @@ class _NavigationPageState extends State<NavigationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColors.pink,
-        title: const Text('OvaPal'),
-      ),
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: 'Page One',
+            label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Page Two',
+            icon: Icon(Icons.bar_chart),
+            label: 'Chart',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            label: 'Page Three',
+            icon: Icon(Icons.medication),
+            label: 'Medico',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
-            label: 'Page Four',
+            icon: Icon(Icons.note_add_sharp),
+            label: 'Notes',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Page Five',
+            icon: Icon(Icons.settings),
+            label: 'Settings',
           ),
         ],
         currentIndex: _selectedIndex,
@@ -74,51 +75,6 @@ class _NavigationPageState extends State<NavigationPage> {
         selectedItemColor: AppColors.pink,
         unselectedItemColor: AppColors.blackGrey,
       ),
-    );
-  }
-}
-
-class PageOne extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('Page One'),
-    );
-  }
-}
-
-class PageTwo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('Page Two'),
-    );
-  }
-}
-
-class PageThree extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('Page Three'),
-    );
-  }
-}
-
-class PageFour extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('Page Four'),
-    );
-  }
-}
-
-class PageFive extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('Page Five'),
     );
   }
 }
