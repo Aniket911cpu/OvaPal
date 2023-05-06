@@ -10,7 +10,8 @@ class Home extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Ovapal'),
         backgroundColor: AppColors.pink,
-        leading: const NavBar(),
+        leading: NavBar(),
+        centerTitle: true,
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
